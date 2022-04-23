@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    
+    <h1 class='d-flex homeHeader'>
+      <div>
+        Movie Database
+      </div>
+      <% if (!authenticated) { %>
+      <div>
+        <a href='/login' class='btn btn-secondary'>Login</a>
+      </div>
+      <% } else {%>
+        <div class='text-muted'>
+          <% if (username != 'undefined') { %>
+            <span class='headUsername'>Hello, <%= username %></span>
+          <% } %>
+          <a href='/logout' class='btn btn-secondary'>Logout</a>
+        </div>
+      <% } %>
+    </h1>
+  
+  <div class='card' id='quote'>
+  </div>
+    
+  <% for ( let i = 0; i < movieData.length; i++ ) { %>  
+    <a href = 'movie?id=<%=movieData[i].imdbID%>' class='movieList'>
+      <div class='cardFlex'>
+          <img src='<%= movieData[i].Poster%>' width='150'>
+        <div class='movieInfo'>
+          <h4><%= movieData[i].Title %></h4>
+          <br>
+          <section>
+            <%= movieData[i].Plot %>
+            <br><br>
+            Release: <%= movieData[i].Year %>
+            <br><br>
+            Writer: <%= movieData[i].Writer %>
+          </section>
+        </div>
+      </div>
+    </a>
+  <% } %>
+  <script src='/js/quote.js'></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+h1 {
+  background-color: black;
+  padding:30px;
+  color: white;
+}
+
+.homeHeader {
+  justify-content: space-between;
+}
+
+.login {
+  text-align: center;
+}
+
+.headUsername {
+  font-size: 14pt;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.movieList {
+  color: black;
+}
+
+.loginCard, .signUpCard {
+  margin-top: 30px;
+  display: inline-block;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  padding: 20px;
+  
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cardFlex {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  padding: 20px;
+  margin: 16px;
+}
+
+.card {
+  text-align: center;
+  padding: 20px;
+  margin: 12px;
+}
+
+.movieInfo {
+  padding: 20px;
+  text-align: left;
+}
+
+.row {
+  margin: 20px;
+}
+
+button {
+  margin: 12px 0;
+}
+
+.movie {
+  margin: 12px;
+}
+
+.commentText {
+  text-align: left;
+  padding:0.5rem;
+}
+
+.commentUsername {
+  font-weight: bold;
+  margin: auto 0;
+}
+
+.commentHead{
+  justify-content: space-between;
+}
+
+.movieFeedback {
+  text-align: right;
+}
+
+textarea {
+  width: 90vw;
+  height: 20vh;
+  margin: 1rem;
+}
+
+#newComment {
+  text-align: center;
+  padding: 1rem;
+}
+
+#addComment {
+  text-align: center;
+}
+
+.form-select {
+  display: inline;
+}
+
+.newCommentHead {
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.btn-edit {
+  background: none;
+  border: none;
+}
+
+.padding1 {
+  padding: 1rem;
+}
+
+#quote {
+  padding: 1rem;
+}
+
+.centerButtons {
+  justify-content: space-evenly;
+  text-align: center;
+}

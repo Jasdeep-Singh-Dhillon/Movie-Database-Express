@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class='login'>
+    
+    <h1 class='d-flex homeHeader'>
+      <div>
+        Login
+      </div>
+    </h1>
+
+    <form action="/login" method='post' class='loginCard'>
+        <div class="row">
+            <div class="col-auto">
+                Username:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <input type="text" class='form-control' name='username'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                Password:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <input type="password" class='form-control' name='password'>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary">Login</button>
+        </div>
+        <% if (typeof error != 'undefined') { %>
+            <div class="row">
+                <span class="text-danger">
+                    <%= error %>
+                </span>
+            </div>
+            <% } %>
+    </form>
+  <br>
+  <br>
+  <a href='/register'>Don't have an account, register here</a>
+
+</body>
+</html>

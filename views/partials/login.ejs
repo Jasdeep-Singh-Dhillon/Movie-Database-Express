@@ -1,0 +1,17 @@
+<h1 class='d-flex homeHeader'>
+      <div>
+        <%= info.Title %>
+      </div>
+      <% if (!authenticated) { %>
+      <div>
+        <a href='/login' class='btn btn-secondary'>Login</a>
+      </div>
+      <% } else {%>
+        <div class='text-muted'>
+          <% if (username != 'undefined') { %>
+            <span class='headUsername'>Hello, <%= username %></span>
+          <% } %>
+          <a href='/logout' class='btn btn-secondary'>Logout</a>
+        </div>
+      <% } %>
+    </h1>

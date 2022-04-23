@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body class='login'>
+    
+    <h1 class='d-flex homeHeader'>
+      <div>
+        Sign Up
+      </div>
+      <div>
+        <a href='/login' class='btn btn-secondary'>Login</a>
+      </div>
+    </h1>
+
+    <form action="/register" method='post' class='signUpCard'>
+        <div class="row">
+            <div class="col-auto">
+                Username:
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-auto">
+                <input type="text" class='form-control' name='username' placeholder='Enter Username'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                Password:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <input type="password" class='form-control' name='password'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                Repeat Password:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <input type="password" class='form-control' name='repPassword'>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary">Register</button>
+        </div>
+        <% if (typeof error != 'undefined') { %>
+            <div class="row">
+                <span class="text-danger">
+                    <%= error %>
+                </span>
+            </div>
+            <% } %>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    
+  <h1 class='d-flex homeHeader'>
+      <div>
+        Edit Comment
+      </div>
+      <% if (!authenticated) { %>
+      <div>
+        <a href='/login' class='btn btn-secondary'>Login</a>
+      </div>
+      <% } else {%>
+        <div class='text-muted'>
+          <% if (username != 'undefined') { %>
+            <span class='headUsername'>Hello, <%= username %></span>
+          <% } %>
+          <a href='/logout' class='btn btn-secondary'>Logout</a>
+        </div>
+      <% } %>
+  </h1>
+
+  <form method='post' action='/comment/edit' class='card'>
+      <input type='hidden' value='<%= comment.commentId %>' name='commentId'>
+      <input type='hidden' value='<%= comment.username%>' name='username'>
+      <div class='d-flex newCommentHead'>
+        <div>
+          Worth Watching:
+          <br>
+          <input type='radio' name='worthWatching' value='Yes' class='form-check-input' id='worthYes'
+            <% if(comment.worthWatching == 'Yes') { %>
+              checked
+            <% } %>
+            > 
+          <label for='worthYes' class='form-check-label'>Yes</label>
+          <br>
+          <input type='radio' name='worthWatching' value='No' class='form-check-input' id='worthNo'
+          <% if(comment.worthWatching == 'No') { %>
+              checked
+            <% } %>
+          >
+          <label for='worthNo' class='form-check-label'>No</label>
+        </div>
+        <div>
+          Rating:
+          <select name='rating' class='form-select'>
+            <% for ( let i = 1; i <= 10; i++ ) { %>
+              <option value='<%= i %>'
+                <% if(comment.rating == i) { %>
+                  selected
+                <% } %>
+              >
+                <%= i %>
+              </option>
+            <% } %>
+          </select> 
+        </div>
+      </div>
+      <textarea name='comment'><%= comment.text %></textarea>
+      <button class='btn btn-primary'>Edit Comment</button>
+      <% if (typeof message != 'undefined') { %>
+        <span class='text-success padding1'>Comment Updated Successfully</span>
+      <% } %>
+      <a href='/' class='padding1'>Go Home</a>
+    </form>  
+</body>
+</html>

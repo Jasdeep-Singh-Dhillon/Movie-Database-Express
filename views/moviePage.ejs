@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+    
+  <%- include('partials/login') %>
+  
+  <input type='hidden' id='username' value='<%= username %>'>
+  <input type='hidden' id='movieId' value='<%= info.imdbID %>'>
+
+  <div class='d-flex movie'>
+    <div>
+      <img src='<%= info.Poster %>'>
+    </div>
+    <div class='movieInfo'>
+      Plot: <%= info.Plot %>
+      <br>
+      Actors: <%= info.Actors %>
+      <br>
+      Awards: <%= info.Awards %>
+      <br>
+      Box Office: <%= info.BoxOffice %>
+      <br>
+      Country: <%= info.Country %>
+      <br>
+      DVD: <%= info.DVD %>
+      <br>
+      Director: <%= info.Director %>
+      <br>
+      Genre: <%= info.Genre %>
+      <br>
+      Language: <%= info.Language %>
+      <br>
+      Metascore: <%= info.Metascore %>
+      <br>
+      Production: <%= info.Production %>
+      <br>
+      Rated: <%= info.Rated %>
+      <br>
+      Release: <%= info.Released %>
+      <br>
+      IMDB Rating: <%= info.imdbRating %>
+    </div>
+  </div>
+
+  <div class='card movie'>
+    <% if (!authenticated) { %>
+      <a href='/login'>Login to comment</a>
+    <% } else { %>
+      <div id='newComment'>
+        <button class='btn btn-primary' id='addComment'>Add Comment</button>
+      </div>
+    <% } %>
+
+    <% for ( let i = 0; i < comments.length; i++ ) { %>
+      <hr>
+      <div class='d-flex commentHead'>
+        <div class='d-flex'>
+          <% if(username == comments[i].username) { %>
+            <form method='get' action='/comment/edit'>
+              <input type='hidden' value='<%= comments[i].commentId %>' name='commentId'>
+              <button class='btn-edit'>
+                <img src='/images/edit.png' width='25'>
+              </button>
+            </form>
+          <% } %>
+          <span class='commentUsername'><%= comments[i].username %></span>
+        </div>
+        <div class='movieFeedback'>
+          Worth Watching: <%= comments[i].worthWatching %>
+          <br>
+          Rating: <%= comments[i].rating %> / 10
+        </div>
+      </div>
+      <div class='commentText'>
+        <%= comments[i].text %>
+      </div>
+    <% } %>
+  </div>
+  <script src='/js/moviePage.js'></script>
+</body>
+</html>
